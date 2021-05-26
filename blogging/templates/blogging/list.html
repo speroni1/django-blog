@@ -11,8 +11,9 @@
       {{ post.text }}
     </div>
     <ul class="categories">
+      Categories:
       {% for category in post.categories.all %}
-        <li>{{ category }}</li>
+        <li> {{ category}}{% if forloop.counter < post.categories.all|length %}, {% endif %}</li>
       {% endfor %}
     </ul>
   </div>
