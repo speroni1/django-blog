@@ -19,3 +19,19 @@ class Post(models.Model):
     
     def __str__(self):
         return self.title
+
+
+class Category(models.Model):
+    # name
+    name = models.CharField(max_length=128)
+    # description
+    description = models.TextField(blank=True)
+    # posts
+    # post = models.ForeignKey(Post, on_delete=models.CASCADE)
+    posts = models.ManyToManyField(Post, blank=True, related_name='categories')
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        verbose_name_plural = 'Categories'
