@@ -12,13 +12,14 @@ from django.views.generic.detail import DetailView
 
 class BlogListView(ListView):
     # model = Post
-    queryset = Post.objects.exclude(published_date=None).order_by('-published_date')
-    template_name = 'blogging/list.html'
+    queryset = Post.objects.exclude(published_date=None).order_by("-published_date")
+    template_name = "blogging/list.html"
 
 
 class BlogDetailView(DetailView):
     queryset = Post.objects.exclude(published_date=None)
-    template_name = 'blogging/detail.html'
+    template_name = "blogging/detail.html"
+
 
 # def stub_view(request, *args, **kwargs):
 #     body = "Stub View\n\n"
@@ -48,4 +49,4 @@ class BlogDetailView(DetailView):
 #     except Post.DoesNotExist:
 #         raise Http404
 #     context = {'post': post}
-#     return render(request, 'blogging/detail.html', context)    
+#     return render(request, 'blogging/detail.html', context)
