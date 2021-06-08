@@ -17,7 +17,7 @@ class BlogListView(ListView):
 
 
 class BlogDetailView(DetailView):
-    model = Post
+    queryset = Post.objects.exclude(published_date=None)
     template_name = 'blogging/detail.html'
 
 # def stub_view(request, *args, **kwargs):
