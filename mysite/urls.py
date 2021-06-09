@@ -23,9 +23,9 @@ from .views import Home
 urlpatterns = [
     path("polling/", include("polling.urls")),
     path("admin/", admin.site.urls),
-    path("blogging/", include("blogging.urls")),  # updated this to make room for home
+    path("", include("blogging.urls")),  
     path("login/", LoginView.as_view(template_name="login.html"), name="login"),
     path("logout/", LogoutView.as_view(next_page="/"), name="logout"),
     path("accounts/", include("allauth.urls")),
-    path("", Home.as_view(), name="home"),
+    path("home/", Home.as_view(), name="home"), #used "home" instead of "" since that already exists and is used for tests
 ]
