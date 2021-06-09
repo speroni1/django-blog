@@ -18,11 +18,14 @@ from django.urls import path, include
 
 from django.contrib.auth.views import LoginView, LogoutView
 
+from .views import Home
+
 urlpatterns = [
     path("polling/", include("polling.urls")),
     path("admin/", admin.site.urls),
-    path("", include("blogging.urls")),
+    path("blogging/", include("blogging.urls")),  # updated this to make room for home
     path("login/", LoginView.as_view(template_name="login.html"), name="login"),
     path("logout/", LogoutView.as_view(next_page="/"), name="logout"),
     path("accounts/", include("allauth.urls")),
+    path("", Home.as_view(), name="home"),
 ]
